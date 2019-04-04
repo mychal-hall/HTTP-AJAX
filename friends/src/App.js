@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   render() {
-    return <Friends friends={this.state.friends}/>;
+    return <Friends friends={this.state.friends} />;
   }
 }
 
