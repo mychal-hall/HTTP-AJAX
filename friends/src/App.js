@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
+import Friends from "./components/friends";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       friends: []
     };
@@ -19,13 +19,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <ul>
-        {this.state.friends.map(friend => (
-          <li>{friend.name}</li>
-        ))}
-      </ul>
-    );
+    return <Friends friends={this.state.friends}/>;
   }
 }
 
