@@ -2,6 +2,8 @@ import React from "react";
 import "./components.css";
 import axios from "axios";
 
+
+
 function Friend(props) {
   const friend = props.friends.find(
     person => `${person.id}` === props.match.params.id
@@ -11,7 +13,7 @@ function Friend(props) {
   }
 
   const deleteFriend = event => {
-    console.log("Erasing this friend, forver.");
+    console.log("Erasing this friend, forever.");
     axios
       .delete(`http://localhost:5000/friends/${friend.id}`)
       .then(response => {
@@ -24,11 +26,12 @@ function Friend(props) {
   return (
     <div className="friend-container">
       <div className="friend-header">
-        <span onClick={deleteFriend}>Delete</span>
         <div className="friend-deets">
           <h2>{friend.name}</h2>
           <p>{friend.email}</p>
         </div>
+        <p className='delete' onClick={deleteFriend}>Delete</p>
+        <p className='update' onClick={deleteFriend}>Update</p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './components.css'
 
 export default class FriendForm extends React.Component {
   constructor(props) {
@@ -35,10 +36,11 @@ export default class FriendForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Have a New Friend?</h2>
-        <form onSubmit={this.submitHandler}>
+      <div className='form-wrapper'>
+        <h2>Add a new Friend!</h2>
+        <form className='form-inputs' onSubmit={this.submitHandler}>
           <input
+          className='form'
             type="text"
             name="age"
             onChange={this.changeHandler}
@@ -46,6 +48,7 @@ export default class FriendForm extends React.Component {
             value={this.state.friend.age}
           />
           <input
+            className='form'
             type="text"
             name="email"
             onChange={this.changeHandler}
@@ -53,13 +56,14 @@ export default class FriendForm extends React.Component {
             value={this.state.friend.email}
           />
           <input
+            className='form'
             type="text"
             name="name"
             onChange={this.changeHandler}
             placeholder="Name"
             value={this.state.friend.name}
           />
-          <button type="submit">Add your new friend!</button>
+          <button className='btn' type="submit">Add your new friend!</button>
         </form>
       </div>
     );
