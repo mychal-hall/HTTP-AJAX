@@ -1,18 +1,25 @@
 import React, { Component } from "react";
-import axios from "axios";
+import "./components.css";
 
-export default class Friends extends React.Component {
-  constructor(props) {
-    super(props);
+function Friends(props) {
+  function routeToFriend(event, friend) {
+    event.preventDefault();
+    props.history.push(`/friends/${friend.id}`);
   }
-
-  render() {
-    return (
-      <ul>
-        {this.props.friends.map(friend => (
-          <li>{friend.name}</li>
-        ))}
-      </ul>
-    );
-  }
+  return (
+    <div className="friend-container">
+      {props.friends.map(friend => (
+        <div
+          className="friend-deets"
+          onClick={event => routeToFriend(event, friend)}
+          key={friend.id}
+        >
+          <h2>{friend.name}</h2>
+          <p>{friend.email}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
+
+export default Friends;
